@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Статья</title>
+</head>
+<body>
+<h6><a href="/articles/all/">Домой</a></h6>
+{#{% extends 'main.html' %}#}
+
+<h4>{{ article.article_date }}</h4>
+<h2>{{ article.article_title }}</h2>
+<p>{{ article.article_text }}</p>
+<hr>
+<p>Комментарии</p>
+{%  for comment in comments %}
+    <p>{{ comment.comments_text }}</p>
+{% endfor %}
+</body>
+</html>

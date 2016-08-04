@@ -22,11 +22,11 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index',main_page),
-    url(r'^1',basic_one),
-    url(r'^2',template_two),
-    url(r'^3', template_three_simple),
+    # url(r'^index',main_page),
+    # url(r'^1',basic_one),
+    # url(r'^2',template_two),
+    # url(r'^3', template_three_simple),
     url(r'^articles/all/$',articles),
     url(r'^articles/get/(?P<article_id>\d+)/$',article),
-
+    url(r'^',articles),
 ]

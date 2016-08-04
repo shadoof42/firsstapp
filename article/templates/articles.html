@@ -1,19 +1,13 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>Стена</title>#}
-{#</head>#}
-{#<body>#}
 {% extends 'main.html' %}
+{% load staticfiles %}
 {% block articles %}
+<div class="large-8"></div>
 {% for article in articles %}
     <h6>Дата публикации: {{ article.article_date }}</h6>
     <h4><a href="/articles/get/{{ article.id }}">{{ article.article_title }}</a></h4>
     <p>{{ article.article_text }}</p>
-    <p>Понравилось: {{ article.article_likes }}</p>
+    <p><img src="{% static "like.png" %}" width="25px" height="25px">Понравилось: {{ article.article_likes }}</p>
     <hr>
 {% endfor %}
+</div>
 {% endblock %}
-{#</body>#}
-{#</html>#}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'article',
+    'loginsys',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,8 @@ ROOT_URLCONF = 'firstapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/shadoof/djangoenv/bin/firstapp/templates','/home/shadoof/djangoenv/bin/firstapp/article/templates' ],
+        'DIRS': ['/home/shadoof/djangoenv/bin/firstapp/templates','/home/shadoof/djangoenv/bin/firstapp/article/templates',
+                '/home/shadoof/djangoenv/bin/firstapp/loginsys/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

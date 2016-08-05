@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 
-from article.views import basic_one, template_two, template_three_simple,articles,article,main_page
+from article.views import basic_one, template_two, template_three_simple,articles,article,main_page,addlike,addcomment
 
 admin.autodiscover()
 
@@ -28,5 +28,8 @@ urlpatterns = [
     # url(r'^3', template_three_simple),
     url(r'^articles/all/$',articles),
     url(r'^articles/get/(?P<article_id>\d+)/$',article),
-    url(r'^',articles),
+
+    # url(r'^',articles),
+    url(r'^articles/addlike/(?P<article_id>\d+)/$',addlike),
+    url(r'^articles/addcomment/(?P<article_id>\d+)/$',addcomment),
 ]

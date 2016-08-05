@@ -1,5 +1,5 @@
 # from __future__ import unicode_literals
-
+# -*- coding: utf-8 -*-
 from django.db import models
 
 
@@ -18,5 +18,5 @@ class Comments(models.Model):
     class Meta():
         db_table = 'comments'
 
-    comments_text = models.TextField()
-    comments_arcticle = models.ForeignKey(Article)
+    comments_text = models.TextField(verbose_name="Текст комментария")
+    comments_article = models.ForeignKey(Article)

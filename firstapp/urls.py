@@ -17,7 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 
 from article.views import basic_one, template_two, template_three_simple,articles,article,main_page,addlike,addcomment
-from loginsys.views import login,logout
+from loginsys.views import login,logout,register
 
 admin.autodiscover()
 
@@ -27,12 +27,14 @@ urlpatterns = [
     # url(r'^1',basic_one),
     # url(r'^2',template_two),
     # url(r'^3', template_three_simple),
-    url(r'^articles/all/$',articles),
-    url(r'^articles/get/(?P<article_id>\d+)/$',article),
-    url(r'^articles/addlike/(?P<article_id>\d+)/$',addlike),
-    url(r'^articles/addcomment/(?P<article_id>\d+)/$',addcomment),
-    url(r'^auth/login/',login),
-    url(r'^auth/logout/',logout),
-    url(r'^page/(\d+)/$', articles),
-    url(r'^',articles)
+    # url(r'^articles/all/$', articles),
+    url(r'^articles/page/(\d+)/$', articles),
+    url(r'^articles/get/(?P<article_id>\d+)/$', article),
+    # url(r'^articles/get/(?P<article_id>\d+)/(\d+)/$', article),
+    url(r'^articles/addlike/(?P<article_id>\d+)/$', addlike),
+    url(r'^articles/addcomment/(?P<article_id>\d+)/$', addcomment),
+    url(r'^auth/login/$', login),
+    url(r'^auth/logout/$', logout),
+    url(r'^auth/register/$',register),
+    # url(r'^articles/', articles),
 ]

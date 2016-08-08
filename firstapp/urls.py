@@ -33,5 +33,6 @@ urlpatterns = [
     url(r'^articles/addcomment/(?P<article_id>\d+)/$',addcomment),
     url(r'^auth/login/',login),
     url(r'^auth/logout/',logout),
+    url(r'^page/(\d+)/$', articles),
     url(r'^',articles)
 ]

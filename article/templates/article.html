@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{% load staticfiles %}
 {% block article %}
 <h4>{{ article.article_date }}</h4>
 <h2>{{ article.article_title }}</h2>
@@ -6,10 +7,35 @@
 <hr>
 
 <p>Комментарии</p>
-<div class="large-offset-1 large-12 columns">
+<div class="large-6"></div>
 {%  for comment in comments %}
-    <p>{{ comment.comments_text }}</p>
+    <p>{{ comment.comments_text}}</p>
 {% endfor %}
+</div>
+<div class="row">
+    <div class="large-3 large-offset-5 columns">
+            <ul class="pagination">
+                {% if comments.has_previous %}
+                    <li class="arrow"><a href="/articles/get/{{ article.id}}/{{ comments.previous_page_number }}/">&laquo;</a> </li>
+                {% else %}
+                    <li class="arrow unavailable"><a href="">&laquo;</a></li>
+                {% endif %}
+                {% for page in comments.paginator.page_range %}
+                    {% if page == comments.number %}
+                        <li class="current"><a href="/articles/get/{{ article.id }}/{{ page }}/">{{ page }}</a> </li>
+                    {% else %}
+                        <li><a href="/articles/get/{{ article.id }}/{{ page }}/">{{ page }}</a> </li>
+                    {% endif %}
+                {% endfor %}
+                {%  if comments.has_next %}
+                    <li class="arrow"><a href="/articles/get/{{ article.id }}/{{ comments.next_page_number }}/">&raquo;</a> </li>
+                {% else %}
+                    <li class="arrow unavailable"><a href="">&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+</div>
+
     {% if username %}
     <form action="/articles/addcomment/{{ article.id }}/" method="post">
         {% csrf_token %}

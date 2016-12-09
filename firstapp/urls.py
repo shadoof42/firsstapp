@@ -29,6 +29,7 @@ urlpatterns = [
     # url(r'^3', template_three_simple),
     # url(r'^articles/all/$', articles),
     url(r'^articles/page/(\d+)/$', articles),
+    url(r'^articles/get/(?P<article_id>\d+)/(?P<comment_page>\d+)/$', article),
     url(r'^articles/get/(?P<article_id>\d+)/$', article),
     # url(r'^articles/get/(?P<article_id>\d+)/(\d+)/$', article),
     url(r'^articles/addlike/(?P<article_id>\d+)/$', addlike),
